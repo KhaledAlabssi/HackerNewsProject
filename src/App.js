@@ -2,14 +2,17 @@ import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  const [result, setResult] = useState([
-    {id:1, body: "I'm result 1", author: 'Sam'},
-    {id:2, body: "I'm result 2", author: 'Lee'},
-    {id:3, body: "I'm result 3", author: 'Adam'},
-    
-  ])
+  const [result, setResult] = useState([])
+  
+
+  fetch('http://hn.algolia.com/api/v1/search?query=')
+  .then(response => response.json())
+  .then(data => setResult(data.hits));
+
+  
   return (
     <div className="App">
+      {result.map(i => <h1>{i.title}</h1>)}
       
       
     </div>
