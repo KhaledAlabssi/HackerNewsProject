@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Item() {
+export default function Item({listItem}) {
     return (
-        <div>
-            
-        </div>
+        <>
+        <h2>{listItem.title}</h2>
+
+        
+        </>
     )
 }

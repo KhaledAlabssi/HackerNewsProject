@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import List from './component/List'
 import './App.css';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
   
   return (
     <div className="App">
-      {result.map(i => <h1>{i.title}</h1>)}
+      {/* {result.map(i => <h1>{i.title}</h1>)} */}
+      <List result={result} />
       
       
     </div>
