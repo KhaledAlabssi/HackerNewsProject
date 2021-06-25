@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import List from './component/List'
+import SearchBar from './component/SearchBar';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       {/* {result.map(i => <h1>{i.title}</h1>)} */}
+      <SearchBar />
       <List result={result} />
       
       
