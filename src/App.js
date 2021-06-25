@@ -5,13 +5,13 @@ import './App.css';
 
 function App() {
   const [result, setResult] = useState([])
-
-  useEffect(() => {
-    fetch('http://hn.algolia.com/api/v1/search?query=')
+  const [searchUrl, setSearchUrl] = useState('http://hn.algolia.com/api/v1/search?query=')
+  useEffect( () => {
+   fetch(searchUrl)
   .then(response => response.json())
   .then(data => setResult(data.hits));
 
-  }, [])
+  }, [searchUrl])
   
 
   
@@ -20,8 +20,8 @@ function App() {
   return (
     <div className="App">
       {/* {result.map(i => <h1>{i.title}</h1>)} */}
-      <SearchBar />
-      <List result={result} />
+      <SearchBar setSearchUrl = {setSearchUrl} searchUrl={searchUrl}/>
+      <List result={result} setSearchUrl = {setSearchUrl} searchUrl={searchUrl}/>
       
       
     </div>
