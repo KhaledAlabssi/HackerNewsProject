@@ -28,6 +28,13 @@
   color: #61dafb;
 }
 
+#dark-mode-list{
+  background:#121212;
+  margin: 0;
+  color: white;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
