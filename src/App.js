@@ -23,7 +23,11 @@ function App() {
     console.log(`${searchUrl}, fetching`)
     // .then(response => response.json())
     // .then(data => setResult(data.hits))
-  }, 30000)
+  }, 300000)
+
+  //stops fetching data from previous search query
+  return () => {clearInterval(updateArticleList)
+  console.log('stop')}
 
   }, [searchUrl])
   
