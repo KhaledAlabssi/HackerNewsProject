@@ -13,10 +13,17 @@ function App() {
   const changeAppTheme = (value) => {
     setAppTheme(value)
   }
+  const fetchArticles = () => fetch(searchUrl)
   useEffect( () => {
-   fetch(searchUrl)
-  .then(response => response.json())
-  .then(data => setResult(data.hits));
+   fetchArticles()
+   .then(response => response.json())
+   .then(data => setResult(data.hits))
+   const updateArticleList = setInterval(() => {
+    fetchArticles()
+    console.log(`${searchUrl}, fetching`)
+    // .then(response => response.json())
+    // .then(data => setResult(data.hits))
+  }, 30000)
 
   }, [searchUrl])
   
@@ -38,7 +45,7 @@ function App() {
           // to change the component based on which theme we choose
           // its just javascript, accessing an object dynamically ©Chris
           {
-            "light-mode": <List result={result} setSearchUrl = {setSearchUrl} searchUrl={searchUrl}/>,
+            "lightmode": <List result={result} setSearchUrl = {setSearchUrl} searchUrl={searchUrl}/>,
             darkmode: <Darkmode result={result} setSearchUrl = {setSearchUrl} searchUrl={searchUrl}/>,
           }[themes]
         }
