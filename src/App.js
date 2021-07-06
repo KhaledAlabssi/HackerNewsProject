@@ -2,8 +2,10 @@ import React, {useState, useEffect} from 'react';
 import List from './component/List'
 import SearchBar from './component/SearchBar';
 import AppThemes from './component/Themes'
+import 'rsuite/dist/styles/rsuite-default.css';
 import Darkmode from './Darkmode'
 import './App.css';
+import {Container, Header, Footer} from 'rsuite'
 
 function App() {
   const [result, setResult] = useState([])
@@ -36,11 +38,14 @@ function App() {
 
   
   return (
+    <Container>
+      <Header>Header</Header>
     <div className="App" id={appTheme + "-list"}>
       {/* {result.map(i => <h1>{i.title}</h1>)} */}
-      <AppThemes themes={themes} callback={changeAppTheme}/>
+      
       <SearchBar result ={result} setSearchUrl = {setSearchUrl} searchUrl={searchUrl} />
       <List result={result} setSearchUrl = {setSearchUrl} searchUrl={searchUrl}/>
+      <AppThemes themes={themes} callback={changeAppTheme}/>
       
       
       
@@ -54,6 +59,8 @@ function App() {
           }[themes]
         }
     </div>
+    <Footer>Footer</Footer>
+    </Container>
   );
 }
 

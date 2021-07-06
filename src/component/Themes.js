@@ -1,11 +1,16 @@
+
+import { Button, ButtonGroup } from 'rsuite'
+
 export default function AppThemes({ themes, callback }) {
     return (
-      <div className="theme-list">
+      
+        <ButtonGroup>
         {themes.map((b) => (
-          <button key={b} onClick={() => callback(b)}>
+          <Button color='primary' key={b} onClick={() => callback(b)}>
             {b}
-          </button>
+          </Button>
         ))}
-      </div>
+        </ButtonGroup>
+      
     );
   }
